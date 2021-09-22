@@ -1,0 +1,41 @@
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int n = scn.nextInt();
+      int b1 = scn.nextInt();
+     int  b2= scn.nextInt();
+     int d=getValue(n,b1,b2);
+     System.out.println(d);
+   } 
+   public static int getValue(int n,int b1,int b2){
+       int d1=getValueInDecimal(n,b1);
+       int d2=getValueInBase(d1,b2);
+       return d2;
+   }
+   public static int getValueInDecimal(int n,int b1){
+       int a=1;
+       int d1=0;
+       while(n!=0){
+           int r=n%10;
+           n=n/10;
+           d1=d1+r*a;
+           a=a*b1;
+       }
+       return d1;
+   }
+   public static int getValueInBase(int d1,int b2){
+       int a=1;
+       int d2=0;
+       while(d1!=0){
+           int r=d1%b2;
+           d1=d1/b2;
+           d2=d2+r*a;
+           a=a*10;
+           
+       }
+       return d2;
+   }
+  }
